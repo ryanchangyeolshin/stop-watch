@@ -2,7 +2,9 @@
 
 // Inititalize the seconds to zero and other variables here
 var timer = {
-  seconds: 0,
+  hours: 0,
+  minutes: 0,
+  seconds: 50,
   id: null
 }
 var $time = document.querySelector('#time')
@@ -11,6 +13,15 @@ var $stop = document.querySelector('#stop')
 
 function start() {
   timer.id = setInterval(function() {
+    if (timer.seconds === 60) {
+      timer.seconds = 0
+      timer.minutes++
+
+      if(timer.minutes === 60) {
+        timer.hours++
+      }
+    }
+
     timer.seconds++
     renderSeconds()
     console.log(timer.seconds)
@@ -18,7 +29,8 @@ function start() {
 }
 
 function renderSeconds() {
-  $time.textContent = timer.seconds
+
+  $time.textContent = timer.hours + ' hours ' + timer.minutes + ' minutes ' + timer.seconds + ' seconds'
 }
 
 function stop() {
