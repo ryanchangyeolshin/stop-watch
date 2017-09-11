@@ -7,7 +7,7 @@ var timer = {
 var $time = document.querySelector('#time')
 var $buttons = document.querySelector('.buttons')
 var $start = document.querySelector('#start')
-var $stop = null
+var $stop = document.querySelector('#stop')
 
 var pressedStart = false
 
@@ -23,7 +23,19 @@ function stop() {
 }
 
 function renderTime() {
-  $time.textContent = timer.seconds + ' second(s)'
+  setInterval(function() {
+    $time.textContent = timer.seconds + ' second(s)'
+  }, 16)
+}
+
+function toggleButtons() {
+ var $active = document.querySelector('.active')
+ var $hidden = document.querySelector('.hidden')
+
+ $active.classList.toggle('active')
+ $active.classList.toggle('hidden')
+ $hidden.classList.toggle('hidden')
+ $hidden.classList.toggle('active')
 }
 
 $start.addEventListener('click', function(e) {
@@ -31,18 +43,11 @@ $start.addEventListener('click', function(e) {
     start()
   }
   pressedStart = true
+  toggleButtons()
+})
 
-  $start.style.display = 'none';
-
-  $stop = document.createElement('button')
-  $stop.setAttribute('id', 'stop')
-  $stop.textContent = 'Stop'
-  $buttons.appendChild($stop)
-
-  $stop.addEventListener('click', function(e) {
-    stop()
-    $stop.style.display = 'none';
-    $start.style.display = 'inline';
-    pressedStart = false;
-  })
+$stop.addEventListener('click', function(e) {
+  stop()
+  toggleButtons()
+  pressedStart = false;
 })

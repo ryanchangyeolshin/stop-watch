@@ -95,3 +95,7 @@ h1 {
   background-color: #dd5b4a;
   color: white;
 }
+
+.hidden {
+  display: none;
+}
