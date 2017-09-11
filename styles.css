@@ -10,8 +10,7 @@ body {
 
 .container {
   /* Positioning */
-  width: 100%;
-  height: 100%;
+  width: 1000px;
 
   /* Box Model */
   margin: 0 auto;
@@ -21,16 +20,15 @@ body {
 }
 
 .stop-watch-section {
-  /* Positioning */
-  width: 1000px;
-  height: 100%;
-
   /* Box Model */
   margin: 0 auto;
-  padding: 50px;
+  padding: 30px;
 
   /* Visuals */
-  background-color: #ddbe8e;
+  background-color: #dd4230;
+
+  /* Misc */
+  overflow: hidden;
 }
 
 h1 {
@@ -63,9 +61,8 @@ h1 {
 }
 
 .buttons {
-  /* Positioning */
-  width: 50%;
-  height: 100%;
+  /* Typography */
+  text-align: center;
 
   /* Box Model */
   margin: 0 auto;
@@ -73,13 +70,11 @@ h1 {
 
 #start {
   /* Box Model */
-  display: inline-block;
-  border-radius: 4px;
-  margin: 0 auto;
+  border-radius: 10px;
   padding: 30px 80px;
 
   /* Typography */
-  font-size: 1.2em;
+  font-size: 30px;
   font-weight: 700;
 
   /* Visuals */
@@ -89,13 +84,11 @@ h1 {
 
 #stop {
   /* Box Model */
-  display: inline-block;
-  border-radius: 4px;
-  margin: 0 auto;
+  border-radius: 10px;
   padding: 30px 80px;
 
   /* Typography */
-  font-size: 1.2em;
+  font-size: 30px;
   font-weight: 700;
 
   /* Visuals */
