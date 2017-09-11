@@ -4,7 +4,7 @@
 var timer = {
   hours: 0,
   minutes: 0,
-  seconds: 50,
+  seconds: 57,
   id: null
 }
 var $time = document.querySelector('#time')
@@ -13,23 +13,25 @@ var $stop = document.querySelector('#stop')
 
 function start() {
   timer.id = setInterval(function() {
-    if (timer.seconds === 60) {
+    if (timer.seconds === 59) {
       timer.seconds = 0
       timer.minutes++
 
-      if(timer.minutes === 60) {
+      if(timer.minutes === 59) {
         timer.hours++
       }
+      renderSeconds()
+    }
+    else {
+      timer.seconds++
+      renderSeconds()
     }
 
-    timer.seconds++
-    renderSeconds()
     console.log(timer.seconds)
   }, 1000)
 }
 
 function renderSeconds() {
-
   $time.textContent = timer.hours + ' hours ' + timer.minutes + ' minutes ' + timer.seconds + ' seconds'
 }
 

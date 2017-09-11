@@ -27,7 +27,7 @@ body {
 
   /* Box Model */
   margin: 0 auto;
-  padding: 30px;
+  padding: 50px;
 
   /* Visuals */
   background-color: #ddbe8e;
@@ -68,7 +68,7 @@ h1 {
   height: 100%;
 
   /* Box Model */
-  margin: 0 280px;
+  margin: 0 auto;
 }
 
 #start {
@@ -77,6 +77,10 @@ h1 {
   border-radius: 4px;
   margin: 0 auto;
   padding: 30px 80px;
+
+  /* Typography */
+  font-size: 1.2em;
+  font-weight: 700;
 
   /* Visuals */
   background-color: #5f9f89;
@@ -89,6 +93,10 @@ h1 {
   border-radius: 4px;
   margin: 0 auto;
   padding: 30px 80px;
+
+  /* Typography */
+  font-size: 1.2em;
+  font-weight: 700;
 
   /* Visuals */
   background-color: #dd5b4a;
