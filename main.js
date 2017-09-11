@@ -10,6 +10,7 @@ var timer = {
 var $time = document.querySelector('#time')
 var $start = document.querySelector('#start')
 var $stop = document.querySelector('#stop')
+var $buttons = document.querySelector('.buttons')
 
 function start() {
   timer.id = setInterval(function() {
@@ -32,12 +33,32 @@ function start() {
 }
 
 function renderSeconds() {
-  $time.textContent = timer.hours + ' hours ' + timer.minutes + ' minutes ' + timer.seconds + ' seconds'
+  $time.textContent = timer.hours + ' hour(s) ' + timer.minutes + ' minute(s) ' + timer.seconds + ' second(s)'
 }
 
 function stop() {
   clearInterval(timer.id)
 }
 
-$start.addEventListener('click', start)
-$stop.addEventListener('click', stop)
+function createButton(button) {
+  if (button === $start) {
+    $buttons.prepend(button)
+  }
+  else {
+    $buttons.appendChild(button)
+  }
+
+}
+
+function removeButton(button) {
+  button.remove()
+}
+
+$start.addEventListener('click', function(e) {
+  start()
+  removeButton($start)
+})
+$stop.addEventListener('click', function(e) {
+  stop()
+  createButton($start)
+})
