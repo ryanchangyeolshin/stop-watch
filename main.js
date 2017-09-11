@@ -5,7 +5,9 @@ var timer = {
   id: null
 }
 var $time = document.querySelector('#time')
+var $buttons = document.querySelector('.buttons')
 var $start = document.querySelector('#start')
+var $stop = null
 
 var pressedStart = false
 
@@ -21,7 +23,7 @@ function stop() {
 }
 
 function renderTime() {
-  $time.textContent = timer.seconds
+  $time.textContent = timer.seconds + ' second(s)'
 }
 
 $start.addEventListener('click', function(e) {
@@ -30,7 +32,17 @@ $start.addEventListener('click', function(e) {
   }
   pressedStart = true
 
-  $start.setAttribute('id', 'stop')
-  var $stop = document.querySelector('#stop')
-  $stop.addEventListener('click', stop)
+  $start.style.display = 'none';
+
+  $stop = document.createElement('button')
+  $stop.setAttribute('id', 'stop')
+  $stop.textContent = 'Stop'
+  $buttons.appendChild($stop)
+
+  $stop.addEventListener('click', function(e) {
+    stop()
+    $stop.style.display = 'none';
+    $start.style.display = 'inline';
+    pressedStart = false;
+  })
 })
