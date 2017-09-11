@@ -12,13 +12,13 @@ var pressedStart = false
 
 function start() {
   timer.id = setInterval(function() {
-    seconds++
+    timer.seconds++
     renderTime()
   }, 1000)
 }
 
 function renderTime() {
-  $time.textContent = seconds
+  $time.textContent = timer.seconds
 }
 
 $start.addEventListener('click', function(e) {
