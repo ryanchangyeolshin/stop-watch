@@ -20,6 +20,7 @@ function start() {
 
 function stop() {
   clearInterval(timer.id)
+  timer.id = null
 }
 
 function renderTime() {
