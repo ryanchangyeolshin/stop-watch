@@ -5,16 +5,24 @@ var seconds = 0;
 var $time = document.querySelector('#time')
 var $start = document.querySelector('#start')
 
-function up() {
-  seconds++
-  console.log(seconds)
+// This variable is a boolean to see if the addEventListener for the start
+// button has been pressed
+var pressedStart = false
+
+function start() {
+  setInterval(function() {
+    seconds++
+    renderTime()
+  }, 1000)
 }
 
-function changeSeconds() {
+function renderTime() {
   $time.textContent = seconds
 }
 
-$start.addEventListener('click', function() {
-  setInterval(up, 1000)
-  setInterval(changeSeconds, 1000)
+$start.addEventListener('click', function(e) {
+  if (!pressedStart) {
+    start()
+  }
+  pressedStart = true
 })
