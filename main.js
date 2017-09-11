@@ -9,13 +9,13 @@ var $buttons = document.querySelector('.buttons')
 var $start = document.querySelector('#start')
 var $stop = document.querySelector('#stop')
 
-var pressedStart = false
-
 function start() {
-  timer.id = setInterval(function() {
-    timer.seconds++
-    renderTime()
-  }, 1000)
+  if(!timer.id) {
+    timer.id = setInterval(function() {
+      timer.seconds++
+      renderTime()
+    }, 1000)
+  }
 }
 
 function stop() {
@@ -39,15 +39,11 @@ function toggleButtons() {
 }
 
 $start.addEventListener('click', function(e) {
-  if (!pressedStart) {
-    start()
-  }
-  pressedStart = true
+  start()
   toggleButtons()
 })
 
 $stop.addEventListener('click', function(e) {
   stop()
   toggleButtons()
-  pressedStart = false;
 })
