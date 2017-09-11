@@ -29,13 +29,13 @@ function renderTime() {
 }
 
 function toggleButtons() {
- var $active = document.querySelector('.active')
- var $hidden = document.querySelector('.hidden')
+  var $active = document.querySelector('.active')
+  var $hidden = document.querySelector('.hidden')
 
- $active.classList.toggle('active')
- $active.classList.toggle('hidden')
- $hidden.classList.toggle('hidden')
- $hidden.classList.toggle('active')
+  $active.classList.toggle('active')
+  $active.classList.toggle('hidden')
+  $hidden.classList.toggle('hidden')
+  $hidden.classList.toggle('active')
 }
 
 $start.addEventListener('click', function(e) {
