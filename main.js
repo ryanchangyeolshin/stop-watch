@@ -1,16 +1,17 @@
 /* eslint-disable no-unused-vars */
 
 // Inititalize the seconds to zero and other variables here
-var seconds = 0;
+var timer = {
+  seconds: 0,
+  id: null
+}
 var $time = document.querySelector('#time')
 var $start = document.querySelector('#start')
 
-// This variable is a boolean to see if the addEventListener for the start
-// button has been pressed
 var pressedStart = false
 
 function start() {
-  setInterval(function() {
+  timer.id = setInterval(function() {
     seconds++
     renderTime()
   }, 1000)
