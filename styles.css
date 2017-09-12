@@ -110,6 +110,17 @@ h1 {
   color: white;
 }
 
+#time-limit-input {
+  /* Box Model */
+  border-radius: 10px;
+  display: block;
+  margin: 50px auto;
+  padding: 20px 100px;
+
+  /* Typography */
+  font-size: 50px;
+}
+
 .hidden {
   display: none;
 }

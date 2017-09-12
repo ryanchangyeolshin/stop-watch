@@ -2,6 +2,7 @@
 
 var timer = {
   seconds: 0,
+  limit: 0,
   id: null
 }
 var $time = document.querySelector('#time')
@@ -9,12 +10,21 @@ var $buttons = document.querySelector('.buttons')
 var $start = document.querySelector('#start')
 var $stop = document.querySelector('#stop')
 var $reset = document.querySelector('#reset')
+var $timeLimit = document.querySelector('#time-limit-input')
 
 function start() {
   if(!timer.id) {
     timer.id = setInterval(function() {
-      timer.seconds++
-      renderTime()
+      if (timer.limit === timer.seconds) {
+        stop()
+        alert('BEEP!')
+        toggleButtons()
+      }
+      else {
+        console.log(timer.limit, timer.seconds)
+        timer.seconds++
+        renderTime()
+      }
     }, 1000)
   }
 }
@@ -46,6 +56,8 @@ function toggleButtons() {
 }
 
 $start.addEventListener('click', function(e) {
+  timer.limit = Number($timeLimit.value)
+  $timeLimit.value = ''
   start()
   toggleButtons()
 })
