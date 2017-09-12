@@ -96,6 +96,20 @@ h1 {
   color: white;
 }
 
+#reset {
+  /* Box Model */
+  border-radius: 10px;
+  padding: 30px 80px;
+
+  /* Typography */
+  font-size: 30px;
+  font-weight: 700;
+
+  /* Visuals */
+  background-color: black;
+  color: white;
+}
+
 .hidden {
   display: none;
 }

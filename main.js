@@ -8,6 +8,7 @@ var $time = document.querySelector('#time')
 var $buttons = document.querySelector('.buttons')
 var $start = document.querySelector('#start')
 var $stop = document.querySelector('#stop')
+var $reset = document.querySelector('#reset')
 
 function start() {
   if(!timer.id) {
@@ -21,6 +22,11 @@ function start() {
 function stop() {
   clearInterval(timer.id)
   timer.id = null
+}
+
+function reset() {
+  timer.seconds = 0
+  renderTime()
 }
 
 function renderTime() {
@@ -48,3 +54,5 @@ $stop.addEventListener('click', function(e) {
   stop()
   toggleButtons()
 })
+
+$reset.addEventListener('click', reset)
